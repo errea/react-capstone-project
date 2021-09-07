@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 
 const GET_COVID = 'covid/covidslice/GET_COVID';
 const GET_COVID_SUCCESS = 'covid/covidslice/GET_COVID_SUCCESS';
