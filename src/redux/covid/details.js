@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
       return { 
           ...state, pending: false, error: action.error };
           default:
-          return state;
+        return state;
   }
 };
 
