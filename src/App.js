@@ -11,28 +11,32 @@ import Home from './components/Home';
 import Details from './components/Details';
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(async () => {
+    await dispatch(getCovid());
+  }, []);
+
+  const countries = useSelector((state) => state.covidReducer.covidCountries);
+
+  const routes = countries.map((country) => (
+    <Route key={country.name[0]} path={`/${country.name[0].toLowerCase()}`}>
+      <Details name={country.name[0]} />
+    </Route>
+  ));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          { routes }
+        </Switch>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
