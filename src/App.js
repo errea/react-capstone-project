@@ -1,7 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import getCovid from './redux/slices/covidSlice';
+import Home from './components/Home';
+import Details from './components/Details';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
