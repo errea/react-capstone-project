@@ -1,4 +1,4 @@
-import filterReducer, { filterData } from '../../redux/detailspage/details';
+import filterReducer, { filterData } from '../../redux/detailspage/details.js';
 
 const initialState = {};
 
