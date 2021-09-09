@@ -1,4 +1,4 @@
-import narrativaAPI from '../../api/narrativa';
+import narrativaAPI from '../../api/covidNarrativa';
 
 const GET_DATA = 'redux/homepage/GET_DATA';
 
