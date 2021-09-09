@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from './redux/configureStore';
 import './index.css';
 import Header from './components/Header';
-import Homepage from './components/Homepage';
+import Homepage from './components/Home';
 import Details from './components/Details';
 
 ReactDOM.render(
