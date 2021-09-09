@@ -1,35 +1,19 @@
-import dayjs from 'dayjs';
-import {
-  GET_COVID_DETAILS,
-  GET_COVID_SUCCESS_DETAILS,
-  GET_COVID_ERR_DETAILS,
-} from '../slices/detailsSlice';
+const FILTER_DATA = 'redux/details/FILTER_DATA';
 
-const today = dayjs().format('YYYY-MM-DD');
+const initialState = {};
 
-// Initialize state
-
-const initialState = {
-  covidDetails: [],
-};
-
-// Reducer function
-
-const reducer = (state = initialState, action) => {
+const filterReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_COVID_DETAILS:
-      return { ...state, pending: true };
-    case GET_COVID_SUCCESS_DETAILS:
-      return {
-        ...state,
-        pending: false,
-        covidDetails: action.details.dates[today].countries,
-      };
-    case GET_COVID_ERR_DETAILS:
-      return { ...state, pending: false, error: action.error };
+    case FILTER_DATA:
+      return action.payload;
     default:
       return state;
   }
 };
 
-export default reducer;
+export const filterData = (payload) => ({
+  type: FILTER_DATA,
+  payload,
+});
+
+export default filterReducer;
