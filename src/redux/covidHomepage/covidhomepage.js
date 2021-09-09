@@ -1,37 +1,27 @@
-import dayjs from 'dayjs';
-import { GET_COVID, GET_COVID_SUCCESS, GET_COVID_ERR } from '../slices/covidSlice';
+import narrativaAPI from '../../api/narrativa';
 
-const today = dayjs().format('YYYY-MM-DD');
+const GET_DATA = 'redux/homepage/GET_DATA';
 
-// Initialize state
+const initialState = [];
 
-const initialState = {
-  covidCountries: [],
-};
-
-// Reducer function
-
-const reducer = (state = initialState, action) => {
+const dataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_COVID:
-      return { ...state, pending: true };
-    case GET_COVID_SUCCESS:
-    {
-      const covidCountries = [];
-      Object.entries(action.covid.dates[today].countries).forEach((key) => {
-        covidCountries.push({
-          name: key,
-          confirmed: key[1].today_confirmed,
-          deaths: key[1].today_deaths,
-        });
-      });
-      return { ...state, pending: false, covidCountries };
-    }
-    case GET_COVID_ERR:
-      return { ...state, pending: false, error: action.error };
+    case GET_DATA:
+      return action.payload.filter((country) => country[1].today_new_confirmed !== 0);
     default:
       return state;
   }
 };
 
-export default reducer;
+export const getDataAction = (payload) => ({
+  type: GET_DATA,
+  payload,
+});
+
+export const getData = () => (dispatch) => {
+  narrativaAPI.getDataByDate().then((res) => {
+    dispatch(getDataAction(Object.entries(res.dates[res.total.date].countries)));
+  });
+};
+
+export default dataReducer;
