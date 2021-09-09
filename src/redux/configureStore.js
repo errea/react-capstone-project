@@ -1,8 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import dataReducer from './covidhomepage/covidhomepage';
+import dataReducer from './homepage/covidhomepage';
 import filterReducer from './detailspage/details';
-import countryReducer from './filterpage/filterpage';
+import countryReducer from './filter/filterpage';
 
 const rootReducer = combineReducers({
   covidData: dataReducer,

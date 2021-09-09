@@ -1,4 +1,4 @@
-import dataReducer, { getDataAction } from '../../redux/covidhomepage/covidhomepage';
+import dataReducer, { getDataAction } from '../../redux/homepage/covidhomepage';
 
 const initialState = [];
 

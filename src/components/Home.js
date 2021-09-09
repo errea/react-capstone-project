@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getData } from '../redux/covidhomepage/covidhomepage';
-import { filterCountries } from '../redux/filterpage/filterpage';
+import { getData } from '../redux/homepage/covidhomepage';
+import { filterCountries } from '../redux/filter/filterpage';
 import './Home.css';
 import HomeCountryCard from './HomeCountryCard';
 
