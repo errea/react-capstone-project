@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import './Details.css';
-import { filterData } from '../redux/detailspage/details';
+import { filterData } from '../redux/details/detailspage';
 
 const Details = () => {
   const dispatch = useDispatch();

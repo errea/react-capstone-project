@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import dataReducer from './homepage/covidhomepage';
-import filterReducer from './detailspage/details';
+import filterReducer from './details/detailspage';
 import countryReducer from './filter/filterpage';
 
 const rootReducer = combineReducers({
