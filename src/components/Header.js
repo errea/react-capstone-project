@@ -12,7 +12,7 @@ const Header = () => {
         ? <button type="button" aria-label="Go back" className="header-back-icon" onClick={() => history.goBack()}><ChevronLeftIcon /></button>
         : <div />}
       <div>
-        <h1 className="header-title">Coronavirus tracker App</h1>
+        <h1 className="header-title">COVID Data Metircs App</h1>
       </div>
       <div />
     </header>

@@ -1,6 +1,6 @@
 .country-card-item {
   height: 162px;
-  padding: 3px 6px;
+  padding: 20px 10px;
 }
 
 .country-card-item:nth-child(4n + 3),
@@ -37,7 +37,7 @@
   text-transform: uppercase;
   cursor: pointer;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 

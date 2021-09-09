@@ -27,7 +27,7 @@
 .details-top-divider p {
   text-transform: uppercase;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   font-weight: 700;
   padding: 4px 0 0 9px;
 }
@@ -53,5 +53,5 @@
 .details-list-item p {
   color: #fff;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 500;
 }

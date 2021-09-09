@@ -1,50 +1,56 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# JavaScript Capstone Project - Build WebApp API
+# React Capstone Project - Metrics Webapp
 
-In this capstone project we learnt how to build a web app that consumes an API using JavaScript to make websites dynamic and build basic single page apps. These also included learning and using ES6 syntax and modules, callbacks and promises. We also learned how to apply JavaScript best practices and language style guides in code. We used AAA pattern for unit tests.
+This React capstone project is about building a mobile web application to check a list of metrics (numeric values) that you will create making use of React and Redux.
+
+I selected an API that provides numeric data about a topic that you like and then build the webapp around it. The webapp will have several pages:. I also learned how to apply JavaScript best practices and language style guides in code. We used AAA pattern for unit tests.
 Write units tests for a JavaScript app and make JavaScript code asynchronous.
-Most importantly we performed a code review for each team member. [Find project specifications here](https://github.com/microverseinc/curriculum-javascript/blob/main/group-capstone/js_capstone.md)
+Most importantly we performed a code review for each team member. [Find project specifications here](https://github.com/microverseinc/curriculum-react-redux/blob/main/capstone/react_capstone.md)
       
 
 <div align="center">
 
-[![View Code](https://img.shields.io/badge/View%20-Code-green)](https://github.com/errea/api-based-webapp)
-[![Github Issues](https://img.shields.io/badge/GitHub-Issues-orange)](https://github.com/errea/api-based-webapp/issues)
-[![GitHub Pull Requests](https://img.shields.io/badge/GitHub-Pull%20Requests-blue)](https://github.com/errea/api-based-webapp/pulls)
+[![View Code](https://img.shields.io/badge/View%20-Code-green)](https://github.com/errea/react-capstone-project)
+[![Github Issues](https://img.shields.io/badge/GitHub-Issues-orange)](https://github.com/errea/react-capstone-project/issues)
+[![GitHub Pull Requests](https://img.shields.io/badge/GitHub-Pull%20Requests-blue)](https://github.com/errea/react-capstone-project/pull/1)
 
 </div>
 
 ## Project description
 
-This web app shows you some appealing action movies for you to like, see information about and drop some messages among your peers and people around the world! 
+This project is about building a mobile web application to check a list of metrics (numeric values) that you will create making use of React and Redux and also making a call from an API.
 
 ## Inner working
 
-The application make API calls to the TVMAZE API retrieving information about the movies, such as name, picture and specific descriptions, like its type. Another API, Involvement API, is responsible for getting the number of likes, saving likes, getting list of comments and saving comments, which update in real-time using Vanilla JavaScript to update the DOM. All those functionalities is tied-up in a single codebase, that makes use of modern tools as Webpack, Jest for testing and ES6 arrow functions.
+The application make API calls to the Narrativa API: COVID-19 data. retrieving information about the CONFIREMD, RETRIVED, DEATH, RECOVERED and TOTAL case of COVID mertic data of a region. First I choosed an API called [Narrativa API](https://covid19tracking.narrativa.com/index_en.html) to base the development of the mobileapp on. The API should allow you to get numeric values based on a parameter. Recommended that I choose an API that is open or needs an API key. If you choose an API that require authentication, you should implement it on your own.
 
 ## Built with
 
 - HTML
 - CSS
 - JavaScript
+- React & Redux
+- React Components
+- React Routes & props
+- Stores, Actions and Reducers in React
+- React DOM
 - VSCode
 - Linters
 - Async/Await
 - Babel
 - JSON
-- DOM
-- TVMAZE API
-- Involvement API
+- Virtual DOM
+- Narrativa API
 - Jest testing
 - Webpack
 - Kanban for Git project organization 
-- API Documentation
-- [Webpack config](hhttps://webpack.js.org/guides/getting-started/)
+- [API Documentation](https://covid19tracking.narrativa.com/index_en.html)
 - ES6 Modules 
 - [Gitflow](https://github.com/microverseinc/curriculum-transversal-skills/blob/main/git-github/articles/gitflow.md)
 
-![screenshot](./screenshot.png)
+![screenshot](./screen-shoot.png)
+![screenshot](./screen-shoot1.png)
 
 
 ## Getting Started <a name = "gs"></a>
@@ -57,8 +63,8 @@ $ cd <folder>
 ```
 
 ~~~bash
-$ git clone https://github.com/errea/api-based-webapp.git
-$ cd api-based-webapp
+$ git clone https://github.com/errea/react-capstone-project.git
+$ cd react-capstone-project
 ~~~
 
 Run `npm install` to install the node modules and webpacker.
@@ -68,98 +74,117 @@ Run `npm run build` to build the bundler and build the webpack.
 Run `npm run start` on a Terminal to start the server and look at the result in `http://localhost:8080/` in your browser.
 
 
-
+# [LIVE PREVIEW]()
 
 
 ## API Information
 
-### TVMAZE API
+### Narrativa API
 
-- For getting the list of movies, the [TVMAZE API](https://www.tvmaze.com/api#show-search) was used.
+- For getting the list of COVID data metrics, the [Narrativa API](https://covid19tracking.narrativa.com/index_en.html) was used.
 
-- Two methods were implemented: To get a list of action movies, and to get a single movie.
+- One methods were implemented: To get a list of COVID data Metrics. 
 
-- The base URL for searching the action movies is: `https://api.tvmaze.com/search/shows?q=action`.
+- The base URL for searching the COVID metrics: `https://api.covid19tracking.narrativa.com/api/`.
 
-- The base URL for getting information for a single movie is `'https://api.tvmaze.com/shows/' + id;` where id is the id of the movie.
+- The base URL for getting information for a counrty `'https://api.covid19tracking.narrativa.com/api/2020-03-22/country/spain' + ?date_from=2020-03-20&date_to=2020-03-22;` where id is the date.
 
 - The result of calling this API is an array containing several fields which can be queried using dot notation.
 
-### Involvement API
-
-- This application uses the [Involvement API service](https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270) provided by Microverse
-
-- For this exercise, a previous app was created in Insomnia
-
-- This process yielded the id of `6XTY5c5cttB49FIPrzzY` which was hardcoded in the code as the :app_id that you will see below.
-
-- The base URL is `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/`
-
-- It has basically 3 endpoints that were used, `/apps/` (to create the application), `/apps/:app_id/likes/` (to create and get likes) and `/apps/:app_id/comments` (To create and get comments)
-
 #### New app
 
-- To create a app, send a POST action to the base URL + `/apps/` without any parameter:
+- To create a app, send a GET action to the base URL + `/apps/` without any parameter:
 
 - The result will be the code for the further API calls: 
 
-``` 
-6XTY5c5cttB49FIPrzzY
-``` 
+#### COUNTRIES
 
-#### Likes
-
-- To create a new like, send a POST action to the base URL + `/apps/:app_id/likes/` (where :app_id is the previous id of the created game) and item identificator (we choose the id of the movie in TVMAZE API, to make the implementation easier):
-
-```
-{
-  "item_id": 40995
-}
-```
-
-- To get a list of all likes for all the items (movies), send a GET action to the base URL + `/apps/:app_id/likes/`:
+- To get a list of all likes for all the items (movies), send a GET action to the base URL + `[/apps/:app_id/likes/](https://api.covid19tracking.narrativa.com/api/2020-03-22/country/spain)`:
 
 - The response will be something like:
 
 ```
 [
-  {
-    "likes": 18,
-    "item_id": 40995
-  }
-]
-``` 
-
-#### Comments
-
-- To create a new comment, send a POST action to the base URL + `/apps/:app_id/comments/` (where :app_id is the previous id of the created game) and item identificator (we choose the id of the movie in TVMAZE API, to make the implementation easier):
-
-```
-{
-  "item_id": 40995,
-  "username": "Arthur",
-  "comment": "This was a great movie!"
-}
-```
-
-Return value for POST action: `201` status (created)
-
-- To get a list of all comments for all the items (movies), send a GET action to the base URL + `/apps/:app_id/comments/?item_id=item1`: (where item1 is 40995, the id of the movie)
-
-- The response will be something like:
-
-```
-[
-  {
-    "comment": "This is nice!",
-    "creation_date": "2021-01-10",
-    "username": "Eri"
-  },
-  {
-    "comment": "Great content!",
-    "creation_date": "2021-02-10",
-    "username": "Arthur"
-  }
+  "dates": {
+        "2020-03-22": {
+            "countries": {
+                "Spain": {
+                    "date": "2020-03-22",
+                    "id": "spain",
+                    "links": [
+                        {
+                            "href": "/api/2020-03-22/country/spain",
+                            "rel": "self",
+                            "type": "GET"
+                        }
+                    ],
+                    "name": "Spain",
+                    "name_es": "España",
+                    "name_it": "Spagna",
+                    "regions": [
+                        {
+                            "date": "2020-03-22",
+                            "id": "castilla-la_mancha",
+                            "links": [
+                                {
+                                    "href": "/api/2020-03-22/country/spain/region/castilla-la_mancha",
+                                    "rel": "self",
+                                    "type": "GET"
+                                }
+                            ],
+                            "name": "Castilla-La Mancha",
+                            "name_es": "Castilla-La Mancha",
+                            "name_it": "Castilla-La Mancha",
+                            "source": "John Hopkins University",
+                            "sub_regions": [
+                                {
+                                    "date": "2020-03-22",
+                                    "id": "ciudad_real",
+                                    "name": "Ciudad Real",
+                                    "name_es": "Ciudad Real",
+                                    "name_it": "Ciudad Real",
+                                    "source": "Consejería Salud Castilla-La Mancha",
+                                    "today_confirmed": 505,
+                                    "today_deaths": 40,
+                                    "today_new_confirmed": 0,
+                                    "today_new_deaths": 0,
+                                    "today_vs_yesterday_confirmed": 0.0,
+                                    "today_vs_yesterday_deaths": 0.0,
+                                    "yesterday_confirmed": 505,
+                                    "yesterday_deaths": 40
+                                },
+                                {
+                                    "date": "2020-03-22",
+                                    "id": "albacete",
+                                    "name": "Albacete",
+                                    "name_es": "Albacete",
+                                    "name_it": "Albacete",
+                                    "source": "Consejería Salud Castilla-La Mancha",
+                                    "today_confirmed": 430,
+                                    "today_deaths": 32,
+                                    "today_new_confirmed": 0,
+                                    "today_new_deaths": 0,
+                                    "today_vs_yesterday_confirmed": 0.0,
+                                    "today_vs_yesterday_deaths": 0.0,
+                                    "yesterday_confirmed": 430,
+                                    "yesterday_deaths": 32
+                                },
+                                {
+                                    "date": "2020-03-22",
+                                    "id": "toledo",
+                                    "name": "Toledo",
+                                    "name_es": "Toledo",
+                                    "name_it": "Toledo",
+                                    "source": "Consejería Salud Castilla-La Mancha",
+                                    "today_confirmed": 501,
+                                    "today_deaths": 28,
+                                    "today_new_confirmed": 0,
+                                    "today_new_deaths": 0,
+                                    "today_vs_yesterday_confirmed": 0.0,
+                                    "today_vs_yesterday_deaths": 0.0,
+                                    "yesterday_confirmed": 501,
+                                    "yesterday_deaths": 28
+                                },
 ]
 ``` 
 
@@ -184,6 +209,7 @@ Feel free to check the [issues page](https://github.com/errea/api-based-webapp/i
 
 - Microverse
 - Narrativa [COVID-19 TRACKING PROJECT](https://covid19tracking.narrativa.com/index_en.html)
+- Original design idea by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio).
 
 ## 📝 License
 
