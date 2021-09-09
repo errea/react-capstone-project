@@ -24,7 +24,8 @@
 .main-item-image,
 .main-item-name {
   color: #fff;
-  padding: 10 18px;
+
+  /* padding: 10 18px; */
   margin: auto 0;
 }
 
