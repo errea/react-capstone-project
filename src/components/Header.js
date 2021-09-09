@@ -1,24 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useLocation, useHistory } from 'react-router-dom';
+import './Header.css';
+import { ReactComponent as ChevronLeftIcon } from './assets/icons/chevron-left.svg';
 
-const Header = ({ backButton, title }) => (
-  <div className="header-container">
-    <div className="header-contents">
-      <p>{backButton}</p>
-      <p>{title}</p>
-      <i>
-        XXXXXX
-      </i>
-      <i>
-        YYYYYY
-      </i>
-    </div>
-  </div>
-);
+const Header = () => {
+  const location = useLocation();
+  const history = useHistory();
 
-Header.propTypes = ({
-  title: PropTypes.string,
-  backButton: PropTypes.string,
-}).isRequired;
+  return (
+    <header className="header">
+      {location.pathname === '/details'
+        ? <button type="button" aria-label="Go back" className="header-back-icon" onClick={() => history.goBack()}><ChevronLeftIcon /></button>
+        : <div />}
+      <div>
+        <h1 className="header-title">Coronavirus tracker App</h1>
+      </div>
+      <div />
+    </header>
+  );
+};
 
 export default Header;
