@@ -74,8 +74,10 @@ Run `npm run build` to build the bundler and build the webpack.
 Run `npm run start` on a Terminal to start the server and look at the result in `http://localhost:8080/` in your browser.
 
 
-# [LIVE PREVIEW]()
+## [LIVE PREVIEW](https://react-capstone-webapp-matrics.netlify.app/)
 
+
+## [LINK TO LOOM VIDEO](https://www.loom.com/share/68d3304d422c434bac972d079db4cf6c)
 
 ## API Information
 
